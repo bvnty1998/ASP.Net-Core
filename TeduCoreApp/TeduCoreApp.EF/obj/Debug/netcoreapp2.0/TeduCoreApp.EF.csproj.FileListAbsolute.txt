@@ -1,0 +1,16 @@
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.EF.deps.json
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.EF.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.EF.pdb
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.Data.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.Infrastructure.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.Utilities.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.Data.pdb
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.Infrastructure.pdb
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\bin\Debug\netcoreapp2.0\TeduCoreApp.Utilities.pdb
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\obj\Debug\netcoreapp2.0\TeduCoreApp.EF.csprojAssemblyReference.cache
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\obj\Debug\netcoreapp2.0\TeduCoreApp.EF.csproj.CoreCompileInputs.cache
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\obj\Debug\netcoreapp2.0\TeduCoreApp.EF.AssemblyInfoInputs.cache
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\obj\Debug\netcoreapp2.0\TeduCoreApp.EF.AssemblyInfo.cs
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\obj\Debug\netcoreapp2.0\TeduCoreApp.EF.csproj.CopyComplete
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\obj\Debug\netcoreapp2.0\TeduCoreApp.EF.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.EF\obj\Debug\netcoreapp2.0\TeduCoreApp.EF.pdb
