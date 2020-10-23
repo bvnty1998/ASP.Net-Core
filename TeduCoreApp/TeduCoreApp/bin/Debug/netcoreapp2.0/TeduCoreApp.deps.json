@@ -4637,6 +4637,13 @@
         }
       },
       "TeduCoreApp.Data/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.3",
+          "Microsoft.Extensions.Configuration": "2.0.2",
+          "TeduCoreApp.Infrastructure": "1.0.0",
+          "TeduCoreApp.Utilities": "1.0.0"
+        },
         "runtime": {
           "TeduCoreApp.Data.dll": {}
         },
