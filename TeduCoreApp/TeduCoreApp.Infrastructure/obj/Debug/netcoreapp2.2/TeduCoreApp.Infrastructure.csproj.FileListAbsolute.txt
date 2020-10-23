@@ -1,0 +1,9 @@
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\bin\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.deps.json
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\bin\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\bin\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.pdb
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.csprojAssemblyReference.cache
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.AssemblyInfo.cs
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.2\TeduCoreApp.Infrastructure.pdb

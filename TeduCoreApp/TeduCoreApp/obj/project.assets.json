@@ -5028,6 +5028,58 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "TeduCoreApp.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.0",
+          "Microsoft.Extensions.Configuration": "2.0.0",
+          "TeduCoreApp.Infrastructure": "1.0.0",
+          "TeduCoreApp.Utilities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TeduCoreApp.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TeduCoreApp.Data.dll": {}
+        }
+      },
+      "TeduCoreApp.EF/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "TeduCoreApp.Data": "1.0.0",
+          "TeduCoreApp.Infrastructure": "1.0.0",
+          "TeduCoreApp.Utilities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TeduCoreApp.EF.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TeduCoreApp.EF.dll": {}
+        }
+      },
+      "TeduCoreApp.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/TeduCoreApp.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TeduCoreApp.Infrastructure.dll": {}
+        }
+      },
+      "TeduCoreApp.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/TeduCoreApp.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TeduCoreApp.Utilities.dll": {}
+        }
       }
     }
   },
@@ -6247,7 +6299,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
-      "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
+      "sha512": "mGKdnq8YUWoCSvIF2z0rR+YpnOq+uqo8X539jW/MVLfNpudr8wu87pGiGdwt8meWkMrYCKMoizDFBk+leI+SwQ==",
       "type": "package",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hasTools": true,
@@ -10641,7 +10693,7 @@
       ]
     },
     "System.Linq.Queryable/4.0.1": {
-      "sha512": "Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
+      "sha512": "lqLnltD6cVnJWY80yDztU2GjTOHm84p1PkNEMux9VKAHh1SI2QUPgH/PBm6P/Gp1S27wQDRQF/41ohotlVTMpQ==",
       "type": "package",
       "path": "system.linq.queryable/4.0.1",
       "files": [
@@ -13654,6 +13706,26 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "TeduCoreApp.Data/1.0.0": {
+      "type": "project",
+      "path": "../TeduCoreApp.Data/TeduCoreApp.Data.csproj",
+      "msbuildProject": "../TeduCoreApp.Data/TeduCoreApp.Data.csproj"
+    },
+    "TeduCoreApp.EF/1.0.0": {
+      "type": "project",
+      "path": "../TeduCoreApp.EF/TeduCoreApp.EF.csproj",
+      "msbuildProject": "../TeduCoreApp.EF/TeduCoreApp.EF.csproj"
+    },
+    "TeduCoreApp.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../TeduCoreApp.Infrastructure/TeduCoreApp.Infrastructure.csproj",
+      "msbuildProject": "../TeduCoreApp.Infrastructure/TeduCoreApp.Infrastructure.csproj"
+    },
+    "TeduCoreApp.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../TeduCoreApp.Utilities/TeduCoreApp.Utilities.csproj",
+      "msbuildProject": "../TeduCoreApp.Utilities/TeduCoreApp.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13661,7 +13733,11 @@
       "Microsoft.AspNetCore.All >= 2.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.3",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.4"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.4",
+      "TeduCoreApp.Data >= 1.0.0",
+      "TeduCoreApp.EF >= 1.0.0",
+      "TeduCoreApp.Infrastructure >= 1.0.0",
+      "TeduCoreApp.Utilities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -13693,7 +13769,20 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.Data\\TeduCoreApp.Data.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.Data\\TeduCoreApp.Data.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.EF\\TeduCoreApp.EF.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.EF\\TeduCoreApp.EF.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.Infrastructure\\TeduCoreApp.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.Infrastructure\\TeduCoreApp.Infrastructure.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.Utilities\\TeduCoreApp.Utilities.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\Visual Studio 2017\\Projects\\ASP.Net\\ASP.Net-Core\\TeduCoreApp\\TeduCoreApp.Utilities\\TeduCoreApp.Utilities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
