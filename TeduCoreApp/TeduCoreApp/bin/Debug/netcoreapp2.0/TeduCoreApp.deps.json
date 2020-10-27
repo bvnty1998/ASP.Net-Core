@@ -4638,6 +4638,7 @@
       },
       "TeduCoreApp.Data/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.4",
           "Microsoft.EntityFrameworkCore": "2.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.3",
           "Microsoft.Extensions.Configuration": "2.0.2",
@@ -4653,6 +4654,8 @@
       },
       "TeduCoreApp.EF/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Identity": "2.0.4",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.4",
           "TeduCoreApp.Data": "1.0.0",
           "TeduCoreApp.Infrastructure": "1.0.0",
           "TeduCoreApp.Utilities": "1.0.0"
