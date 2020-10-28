@@ -10,7 +10,7 @@ using TeduCoreApp.Infrastructure.SharedKernel;
 namespace TeduCoreApp.Data.Entities
 {
     [Table("SystemConfig")]
-    class SystemConfig :DomainEntity<string>,Iswitchable
+   public class SystemConfig :DomainEntity<string>,Iswitchable
     {
         [Required]
         [StringLength(255)]
