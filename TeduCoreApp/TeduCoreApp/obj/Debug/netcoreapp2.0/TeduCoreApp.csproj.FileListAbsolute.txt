@@ -13,9 +13,11 @@ C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreA
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\bin\Debug\netcoreapp2.0\TeduCoreApp.Utilities.pdb
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\TeduCoreApp.csprojAssemblyReference.cache
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\TeduCoreApp.csproj.CoreCompileInputs.cache
-C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\TeduCoreApp.AssemblyInfoInputs.cache
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\TeduCoreApp.AssemblyInfo.cs
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\TeduCoreApp.csproj.CopyComplete
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\TeduCoreApp.dll
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\TeduCoreApp.pdb
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\bin\Debug\netcoreapp2.0\TeduCoreApp.Applications.dll
+C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp\bin\Debug\netcoreapp2.0\TeduCoreApp.Applications.pdb

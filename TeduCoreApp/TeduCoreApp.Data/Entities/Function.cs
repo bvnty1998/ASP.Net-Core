@@ -16,7 +16,7 @@ namespace TeduCoreApp.Data.Entities
         {
 
         }
-        public Function(string name, string url, string parentId, string iconCss, int sortOrder, Status status)
+        public Function(string name, string parentId, int sortOrder, Status status, string url, string iconCss)
         {
             this.Name = name;
             this.Url = url;

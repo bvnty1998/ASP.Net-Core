@@ -10,7 +10,8 @@ using TeduCoreApp.Infrastructure.SharedKernel;
 namespace TeduCoreApp.Data.Entities
 {
     [Table("Slides")]
-    public class Slide:DomainEntity<int>,Iswitchable
+    public class Slide:DomainEntity<int>
+
     {
         [StringLength(255)]
         [Required]
@@ -25,7 +26,7 @@ namespace TeduCoreApp.Data.Entities
         [StringLength(255)]
         [Required]
         public int? DisplayOrder { set; get; }
-        public Status Status { set; get; }
+        public bool Status { set; get; }
         public string Content { get; set; }
         [StringLength(15)]
         [Required]
