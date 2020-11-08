@@ -12,6 +12,7 @@ namespace TeduCoreApp.EF
     public class EFRepository<T, K> : IRepository<T, K>, IDisposable where T : DomainEntity<K>
     {
         private readonly AppDBContext _context;
+
         public EFRepository(AppDBContext context)
         {
             _context = context;
@@ -23,7 +24,7 @@ namespace TeduCoreApp.EF
 
         public void Dispose()
         {
-            if(_context != null)
+            if (_context != null)
             {
                 _context.Dispose();
             }
@@ -32,9 +33,9 @@ namespace TeduCoreApp.EF
         public IQueryable<T> FindAll(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> items = _context.Set<T>();
-            if(includeProperties !=null)
+            if (includeProperties != null)
             {
-                foreach(var includeProperty in includeProperties)
+                foreach (var includeProperty in includeProperties)
                 {
                     items = items.Include(includeProperty);
                 }
@@ -57,20 +58,11 @@ namespace TeduCoreApp.EF
 
         public T FindById(K id, params Expression<Func<T, object>>[] includeProperties)
         {
-            //Select Top 1 * from tblT where id=@id and Name=@name and Age=30
-            //includeProperties[0] >> ĐK id=@id
-            //includeProperties[1] >> ĐK Name=@Name
-            //includeProperties[2] >> ĐK And=@age
-            return FindAll(includeProperties).SingleOrDefault(x=>x.Id.Equals(id));
+            return FindAll(includeProperties).SingleOrDefault(x => x.Id.Equals(id));
         }
 
         public T FindSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
-
-            //B1: Có tập danh sách nhân viên
-            //B2: Tìm nhân viên nào theo [ID or Name or ĐK bất nào đó]
-            // predicate1=DanhSach.select(item =>item.Name="A.A")
-            // predicate2=DanhSach.select(item =>item.Age=30)
             return FindAll(includeProperties).SingleOrDefault(predicate);
         }
 
@@ -79,21 +71,20 @@ namespace TeduCoreApp.EF
             _context.Set<T>().Remove(entity);
         }
 
-        public void Remove(K Id)
+        public void Remove(K id)
         {
-            Remove(FindById(Id));
+            var entity = FindById(id);
+            Remove(entity);
         }
 
-       
-
-        public void RemoveMultiple(List<T> enities)
+        public void RemoveMultiple(List<T> entities)
         {
-            _context.RemoveRange(enities);
+            _context.Set<T>().RemoveRange(entities);
         }
 
         public void Update(T entity)
         {
-            _context.Update(entity);
+            _context.Set<T>().Update(entity);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace TeduCoreApp.Data.Entities
         public decimal Price { get; set; }
         public decimal PromotionPrice { get; set; }
         [Required]
-        public decimal Original { get; set; }
+        public decimal OriginalPrice { get; set; }
         //public string Description { get; set; }
         public string Content { get; set; }
         

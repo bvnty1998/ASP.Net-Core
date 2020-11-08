@@ -43,7 +43,7 @@ namespace TeduCoreApp.EF
         public DbSet<ProductTag> ProductTags { set; get; }
         public DbSet<Size> Sizes { set; get; }
         public DbSet<Slide> Slides { set; get; }
-        public DbSet<SystemConfig> systemConfigs { set; get; }
+        public DbSet<SystemConfig> SystemConfigs { set; get; }
         public DbSet<Tag> Tags { set; get; }
         public DbSet<WholePrice> WholePrices { set; get; }
 
