@@ -10,14 +10,18 @@ namespace TeduCoreApp.Data.Entities
     [Table("AdvertistmentPositions")]
    public class AdvertistmentPosition :DomainEntity<string>
     {
+
+        
+        [Column(TypeName = "varchar(250)")]
+        public string PageId { get; set; }
+
         [StringLength(250)]
-        public string PageId { set; get; }
-        [StringLength(250)]
-        public string Name { set; get; }
+        public string Name { get; set; }
+
         [ForeignKey("PageId")]
-        public virtual AdvertistmentPage AdvertistmentPage { set; get; }
-       
-        public virtual Advertistment Advertistment { set; get; }
+        public virtual AdvertistmentPage AdvertistmentPage { get; set; }
+
+        public virtual ICollection<Advertistment> Advertistments { get; set; }
 
     }
 }

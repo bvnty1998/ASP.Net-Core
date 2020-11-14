@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using TeduCoreApp.Infrastructure.SharedKernel;
@@ -11,7 +12,8 @@ namespace TeduCoreApp.Data.Entities
     {
         public int BlogId { set; get; }
 
-
+        [StringLength(50)]
+        [Column(TypeName = "varchar(125)")]
         public string TagId { set; get; }
 
         [ForeignKey("BlogId")]

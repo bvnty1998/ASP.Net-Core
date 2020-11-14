@@ -12,10 +12,10 @@ namespace TeduCoreApp.EF
 {
    public class DbIntializer
     {
-        private readonly AppDBContext _context;
+        private readonly AppDbContext _context;
         private UserManager<AppUser> _userManager;
         private RoleManager<AppRole> _roleManager;
-        public DbIntializer (AppDBContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
+        public DbIntializer (AppDbContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
@@ -60,7 +60,7 @@ namespace TeduCoreApp.EF
                 await _userManager.AddToRoleAsync(user, "Admin");
             }
 
-            if (_context.Functions.Count() == 0)
+            if (_context.Functions.Count() <0)
             {
                 _context.Functions.AddRange(new List<Function>()
                 {

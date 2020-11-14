@@ -6,4 +6,3 @@ C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreA
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.0\TeduCoreApp.Infrastructure.AssemblyInfo.cs
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.0\TeduCoreApp.Infrastructure.dll
 C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.0\TeduCoreApp.Infrastructure.pdb
-C:\Users\PC\Documents\Visual Studio 2017\Projects\ASP.Net\ASP.Net-Core\TeduCoreApp\TeduCoreApp.Infrastructure\obj\Debug\netcoreapp2.0\TeduCoreApp.Infrastructure.csprojAssemblyReference.cache

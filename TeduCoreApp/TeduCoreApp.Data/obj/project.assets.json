@@ -272,7 +272,7 @@
           "Microsoft.EntityFrameworkCore.Relational": "2.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {}
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -1271,6 +1271,9 @@
       "TeduCoreApp.Utilities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "2.0.0"
+        },
         "compile": {
           "bin/placeholder/TeduCoreApp.Utilities.dll": {}
         },

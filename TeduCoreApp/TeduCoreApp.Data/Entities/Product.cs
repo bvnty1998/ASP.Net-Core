@@ -27,7 +27,7 @@ namespace TeduCoreApp.Data.Entities
         public decimal PromotionPrice { get; set; }
         [Required]
         public decimal OriginalPrice { get; set; }
-        //public string Description { get; set; }
+        
         public string Content { get; set; }
         
         public bool? HomeFlag { get; set; }
@@ -44,7 +44,7 @@ namespace TeduCoreApp.Data.Entities
         public DateTime DateModified { set; get; }
         [StringLength(255)]
         public string SeoPageTitle { set; get; }
-        [Column(TypeName ="varchar")]
+        [Column(TypeName ="varchar(255)")]
         [StringLength(255)]
         public string SeoAlias { set; get; }
         [StringLength(255)]

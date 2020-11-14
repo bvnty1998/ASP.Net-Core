@@ -18,6 +18,8 @@ using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.EF.Repositories;
 using TeduCoreApp.Applications.Interfaces;
 using TeduCoreApp.Applications.Implementation;
+//using AppUser = TeduCoreApp.Data.Entities.AppUser;
+
 
 namespace TeduCoreApp
 {
@@ -33,19 +35,35 @@ namespace TeduCoreApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDBContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),o=>o.MigrationsAssembly("TeduCoreApp.EF")));
-
+            services.AddAutoMapper();
             services.AddIdentity<AppUser, AppRole>()
-                .AddEntityFrameworkStores<AppDBContext>()
+                .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
             // Add application services.
             //services.AddSingleton(Mapper.Configuration);
-           
+            // cofig identity 
+            services.Configure<IdentityOptions>(options =>
+            {
+                //  Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = false; //có viết thưởng hay không
+                options.Password.RequireNonAlphanumeric = false; // có số hay không
+                options.Password.RequireUppercase = false;// có kí tự viết hoa không
+                options.Password.RequiredLength = 6;// chiều dai là bao nhiêu
+                options.Password.RequiredUniqueChars = 0;// có kí tự đặc biệt hay không
+
+                // Lock setting
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+                // user seeting
+                options.User.RequireUniqueEmail = true;
+            });
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
-            services.AddSingleton(Mapper.Configuration);
+           services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
@@ -55,7 +73,7 @@ namespace TeduCoreApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DbIntializer dbIntializer)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -77,8 +95,12 @@ namespace TeduCoreApp
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "areaRoute",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    );
             });
-            dbIntializer.seed();
+           
         }
     }
 }

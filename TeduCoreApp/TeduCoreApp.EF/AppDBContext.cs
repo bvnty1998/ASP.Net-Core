@@ -2,8 +2,11 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using TeduCoreApp.Data.Entities;
@@ -13,14 +16,15 @@ using TeduCoreApp.EF.Extensions;
 
 namespace TeduCoreApp.EF
 {
-    public class AppDBContext : IdentityDbContext<AppUser, AppRole, Guid>
+    public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public AppDBContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions options) : base(options)
         {
         }
+       
         public DbSet<Advertistment> Advertistments { set; get; }
         public DbSet<AdvertistmentPage> AdvertistmentPages { set; get; }
-        public DbSet<AdvertistmentPosition> GetAdvertistmentPositions { set; get; }
+        public DbSet<AdvertistmentPosition> AdvertistmentPositions { set; get; }
         public DbSet<Announcement> Announcements { set; get; }
         public DbSet<AnnouncementUser> AnnouncementUsers { set; get; }
         public DbSet<AppRole> AppRoles { set; get; }
@@ -51,13 +55,14 @@ namespace TeduCoreApp.EF
         protected override void OnModelCreating(ModelBuilder builder)
         {
             #region
-            builder.Entity<IdentityUserClaim<string>>().ToTable("AppUserClaims").HasKey(x => x.Id);
-            builder.Entity<IdentityRoleClaim<string>>().ToTable("AppRoleClaims").HasKey(x => x.Id);
-            builder.Entity<IdentityUserLogin<string>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
-            builder.Entity<IdentityUserRole<string>>().ToTable("AppUserRoles").HasKey(x => new { x.RoleId,x.UserId});
-            builder.Entity<IdentityUserToken<string>>().ToTable("AppUserTokens").HasKey(x => new { x.UserId});
+            builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims").HasKey(x => x.Id);
+            builder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims").HasKey(x => x.Id);
+            builder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
+            builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.RoleId, x.UserId });
+            builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => new { x.UserId });
             #endregion
-
+            builder.AddConfiguration(new AnnouncementConfiguration());
+            builder.AddConfiguration(new AdvertistmentPageCofiguration());
             builder.AddConfiguration(new AdvertistmentPositionConfiguration());
             builder.AddConfiguration(new BlogTagConfiguaration());
             builder.AddConfiguration(new ContactDetailConfiguration());
@@ -66,17 +71,17 @@ namespace TeduCoreApp.EF
             builder.AddConfiguration(new PageConfiguaration());
             builder.AddConfiguration(new ProductTagCofiguaration());
             builder.AddConfiguration(new TagConfiguration());
-            base.OnModelCreating(builder);
+            //base.OnModelCreating(builder);
         }
         public override int SaveChanges()
         {
             var modified = ChangeTracker.Entries().Where(e => e.State == EntityState.Modified || e.State == EntityState.Added);
-            foreach(EntityEntry item in modified)
+            foreach (EntityEntry item in modified)
             {
                 var changedOrAddItem = item.Entity as IDateTracKing;
-                if(changedOrAddItem != null)
+                if (changedOrAddItem != null)
                 {
-                    if(item.State == EntityState.Added)
+                    if (item.State == EntityState.Added)
                     {
                         changedOrAddItem.DateCreated = DateTime.Now;
                     }
@@ -87,6 +92,20 @@ namespace TeduCoreApp.EF
                 }
             }
             return base.SaveChanges();
+        }
+    }
+
+    public class DesignTimeBbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+    {
+        public AppDbContext CreateDbContext(string[] args)
+        {
+            IConfigurationRoot configuaration = new ConfigurationBuilder()
+                 .SetBasePath(Directory.GetCurrentDirectory())
+                 .AddJsonFile("appsettings.json").Build();
+            var builder = new DbContextOptionsBuilder<AppDbContext>();
+            var conectionString = configuaration.GetConnectionString("DefaultConnection");
+            builder.UseSqlServer(conectionString);
+            return new AppDbContext(builder.Options);
         }
     }
 }
