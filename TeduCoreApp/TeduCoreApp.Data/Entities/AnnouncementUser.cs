@@ -18,7 +18,7 @@ namespace TeduCoreApp.Data.Entities
             HasRead = hasRead;
         }
 
-        [StringLength(128)]
+        [Column(TypeName =("varchar(250)"))]
         [Required]
         public string AnnouncementId { get; set; }
 

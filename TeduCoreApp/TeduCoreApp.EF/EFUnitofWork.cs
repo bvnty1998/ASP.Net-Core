@@ -7,8 +7,8 @@ namespace TeduCoreApp.EF
 {
     public class EFUnitofWork : IUnitofWork
     {
-        private readonly AppDBContext _context;
-        public EFUnitofWork (AppDBContext context)
+        private readonly AppDbContext _context;
+        public EFUnitofWork (AppDbContext context)
         {
             _context = context;
         }

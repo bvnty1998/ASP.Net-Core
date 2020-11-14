@@ -11,13 +11,13 @@ namespace TeduCoreApp.Data.Entities
     {
         public int ProductId { set; get; }
         [StringLength(50)]
-        [Column(TypeName = "varchar")]
+        [Column(TypeName = "varchar(125)")]
         public string TagId { set; get; }
 
         [ForeignKey("ProductId")]
         public virtual Product Product { set; get; }
         
-        [ForeignKey("TagId")]
-        public virtual Tag Tag { set; get; }
+       [ForeignKey("TagId")]
+       public virtual Tag Tag { set; get; }
     }
 }

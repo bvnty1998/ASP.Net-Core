@@ -837,6 +837,9 @@
         }
       },
       "TeduCoreApp.Utilities/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "2.0.0"
+        },
         "runtime": {
           "TeduCoreApp.Utilities.dll": {}
         }

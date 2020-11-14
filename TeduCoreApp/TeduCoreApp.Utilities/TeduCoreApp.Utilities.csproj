@@ -8,4 +8,8 @@
     <Folder Include="ATOs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.0" />
+  </ItemGroup>
+
 </Project>

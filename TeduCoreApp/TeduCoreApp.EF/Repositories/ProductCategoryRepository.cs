@@ -10,8 +10,8 @@ namespace TeduCoreApp.EF.Repositories
 {
     public class ProductCategoryRepository : EFRepository<ProductCategory, int>, IProductCategoryRepository
     {
-        AppDBContext _context;
-        public ProductCategoryRepository (AppDBContext context) :base(context)
+        AppDbContext _context;
+        public ProductCategoryRepository (AppDbContext context) :base(context)
         {
             _context = context;
         }

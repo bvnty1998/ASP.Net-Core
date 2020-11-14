@@ -11,9 +11,9 @@ namespace TeduCoreApp.EF
 {
     public class EFRepository<T, K> : IRepository<T, K>, IDisposable where T : DomainEntity<K>
     {
-        private readonly AppDBContext _context;
+        private readonly AppDbContext _context;
 
-        public EFRepository(AppDBContext context)
+        public EFRepository(AppDbContext context)
         {
             _context = context;
         }
