@@ -99,6 +99,7 @@ namespace TeduCoreApp
                     name: "areaRoute",
                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                     );
+              
             });
            
         }
