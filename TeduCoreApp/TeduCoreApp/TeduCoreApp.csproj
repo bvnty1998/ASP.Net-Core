@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\notifyjs\jspm_packages\**" />
+    <Content Remove="wwwroot\lib\notifyjs\jspm_packages\**" />
+    <EmbeddedResource Remove="wwwroot\lib\notifyjs\jspm_packages\**" />
+    <None Remove="wwwroot\lib\notifyjs\jspm_packages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\lib\bootstrap-daterangepicker\node_modules\jquery\AUTHORS.txt" />
     <Content Include="wwwroot\lib\bootstrap-daterangepicker\node_modules\jquery\bower.json" />
     <Content Include="wwwroot\lib\bootstrap-daterangepicker\node_modules\jquery\external\sizzle\LICENSE.txt" />
@@ -22,6 +29,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

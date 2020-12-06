@@ -18,6 +18,13 @@ using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.EF.Repositories;
 using TeduCoreApp.Applications.Interfaces;
 using TeduCoreApp.Applications.Implementation;
+using Serilog.Extensions.Logging;
+using Microsoft.Extensions.Logging;
+
+
+
+
+
 //using AppUser = TeduCoreApp.Data.Entities.AppUser;
 
 
@@ -73,8 +80,9 @@ namespace TeduCoreApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            //loggerFactory.AddFile("Logs/tedu-{Date}.txt");
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
