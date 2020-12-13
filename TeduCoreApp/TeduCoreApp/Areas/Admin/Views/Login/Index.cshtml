@@ -31,24 +31,26 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form>
-                        @Html.AntiForgeryToken();
-                        <h1>Đăng Nhập</h1>
+                    <form id="frmLogin">
+                        @Html.AntiForgeryToken()
+                        <h1>Login</h1>
                         <div>
-                            <input type="text" class="form-control" name="userName" placeholder="tên đăng nhập" required="" id="txtUserName" />
+                            <input type="text" class="form-control" data-required="" name="userName" placeholder="user name" required="" id="txtUserName" />
                         </div>
                         <div>
+                           
                             <input type="password" class="form-control" name="passWord" placeholder="Password" required="" id="txtPassword" />
                         </div>
-                        <div>
-                            <a class="btn btn-default submit" href="#" id="btnLogin">Đăng Nhập</a>
-                            <a class="reset_pass" href="#">Quên mật khẩu?</a>
+                        <div style="display:flex">
+                            <a class="btn btn-default submit" style="margin-right:100px" href="#" id="btnLogin">Login</a>
+                            <a class="reset_pass" style="margin-top:0" href="#">Forgot Password</a>
                         </div>
+                        
                         <div class="clearfix"></div>
                         <div class="separator">
                             <p class="change_link">
                                 New to site?
-                                <a href="#signup" class="to_register"> Tạo mới </a>
+                                <a href="#signup" class="to_register"> Create Account </a>
                             </p>
                             <div class="clearfix"></div>
                             <br />
@@ -66,6 +68,10 @@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/notifyjs/dist/notify.js"></script>
     <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/localization/messages_vi.js"></script>
     <script src="~/lib/app/Controllers/Shared/tedu.js"></script>
     <script src="~/lib/app/Controllers/Login/index.js"></script>
     <script>

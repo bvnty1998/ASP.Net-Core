@@ -20,6 +20,7 @@ using TeduCoreApp.Applications.Interfaces;
 using TeduCoreApp.Applications.Implementation;
 using Serilog.Extensions.Logging;
 using Microsoft.Extensions.Logging;
+using TeduCoreApp.Helpers;
 
 
 
@@ -70,8 +71,9 @@ namespace TeduCoreApp
             });
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
-           services.AddSingleton(Mapper.Configuration);
+            services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+            services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
@@ -105,7 +107,7 @@ namespace TeduCoreApp
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "areaRoute",
-                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    template: "{area:exists}/{controller=Login}/{action=Index}/{id?}"
                     );
               
             });
