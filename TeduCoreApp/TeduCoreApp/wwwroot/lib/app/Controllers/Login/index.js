@@ -5,11 +5,41 @@
         registerEvents();
      }
     var registerEvents = function()
-      {
+    {
+        $('#frmLogin').validate({
+            errorClass: 'red',
+            ignore: [],
+            lang: 'en',
+            rules: {
+                userName:
+                {
+                    required: true,
+
+                },
+                passWord:
+                {
+                    required: true,
+                }
+            },
+            messages: {
+                userName:
+                {
+                    required: "enter user name !"
+                },
+                passWord:
+                {
+                    required:"enter password !"
+                }
+
+            }
+        })
         $('#btnLogin').click(function () {
-            var user = $('#txtUserName').val();
-            var pass = $('#txtPassword').val();
-           login(user, pass);
+            if ($('#frmLogin').valid())
+            {
+                var user = $('#txtUserName').val();
+                var pass = $('#txtPassword').val();
+                login(user, pass);
+            }
         })
       }
     var login = function (user,pass)
