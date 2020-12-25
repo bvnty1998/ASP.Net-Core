@@ -29,7 +29,7 @@ namespace TeduCoreApp.Applications.ViewModel.Product
         public string Unit { get; set; }
 
 
-        public ProductCategoryViewModel ProductCategoryViewModel { set; get; }
+        public ProductCategoryViewModel ProductCategory { set; get; }
 
         public Status Status { set; get; }
         public DateTime DateCreated { set; get; }

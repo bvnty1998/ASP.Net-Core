@@ -12,8 +12,9 @@ using TeduCoreApp.Utilities.ATOs;
 
 namespace TeduCoreApp.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class LoginController : Controller
+  
+    //[Area("Admin")]
+    public class LoginController : BaseController
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;

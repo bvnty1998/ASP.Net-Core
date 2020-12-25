@@ -21,6 +21,7 @@ using TeduCoreApp.Applications.Implementation;
 using Serilog.Extensions.Logging;
 using Microsoft.Extensions.Logging;
 using TeduCoreApp.Helpers;
+using TeduCoreApp.Infrastructure.Interfaces;
 
 
 
@@ -75,10 +76,18 @@ namespace TeduCoreApp
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
             services.AddTransient<IEmailSender, EmailSender>();
-            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
-            services.AddTransient<IProductCategoryService, ProductCategoryService>();
-            services.AddTransient<DbIntializer>();
             services.AddMvc();
+            services.AddTransient(typeof(IUnitofWork), typeof(EFUnitofWork));
+            //Repositrory
+            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+            services.AddTransient<IFunctionRepository, FuctionReponsitory>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            //Service
+            services.AddTransient<IProductCategoryService, ProductCategoryService>();
+            services.AddTransient<IFunctionService, FunctionService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<DbIntializer>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
