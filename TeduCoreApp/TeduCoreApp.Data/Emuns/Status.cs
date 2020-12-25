@@ -6,7 +6,7 @@ namespace TeduCoreApp.Data.Emuns
 {
    public enum Status
     {
-        IsActive,
-        Active
+        IsActive = 0,
+        Active = 1
     }
 }

@@ -10,21 +10,24 @@ using TeduCoreApp.Utilities.Constants;
 
 namespace TeduCoreApp.EF
 {
-   public class DbIntializer
+    public class DbIntializer
     {
         private readonly AppDbContext _context;
         private UserManager<AppUser> _userManager;
         private RoleManager<AppRole> _roleManager;
-        public DbIntializer (AppDbContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
+        public DbIntializer(AppDbContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
         }
+
         public async Task seed()
         {
+
             if (!_roleManager.Roles.Any())
             {
+                _context.AppRoles.Count();
                 await _roleManager.CreateAsync(new AppRole()
                 {
                     Name = "Admin",
@@ -59,40 +62,42 @@ namespace TeduCoreApp.EF
                 var user = await _userManager.FindByNameAsync("admin");
                 await _userManager.AddToRoleAsync(user, "Admin");
             }
-
-            if (_context.Functions.Count() <0)
+            
+            if (_context.Functions.Count() <= 0)
             {
+                //Function functions = new Function("SYSTEM", "null", 1, Status.Active, "/", "fa-desktop");
+                //_context.Functions.Add(functions);
+                //_context.SaveChanges();
+
                 _context.Functions.AddRange(new List<Function>()
-                {
-                    new Function() {Id = "SYSTEM", Name = "System",ParentId = null,SortOrder = 1,Status = Status.Active,Url = "/",IconCss = "fa-desktop"  },
-                    new Function() {Id = "ROLE", Name = "Role",ParentId = "SYSTEM",SortOrder = 1,Status = Status.Active,Url = "/admin/role/index",IconCss = "fa-home"  },
-                    new Function() {Id = "FUNCTION", Name = "Function",ParentId = "SYSTEM",SortOrder = 2,Status = Status.Active,Url = "/admin/function/index",IconCss = "fa-home"  },
-                    new Function() {Id = "USER", Name = "User",ParentId = "SYSTEM",SortOrder =3,Status = Status.Active,Url = "/admin/user/index",IconCss = "fa-home"  },
-                    new Function() {Id = "ACTIVITY", Name = "Activity",ParentId = "SYSTEM",SortOrder = 4,Status = Status.Active,Url = "/admin/activity/index",IconCss = "fa-home"  },
-                    new Function() {Id = "ERROR", Name = "Error",ParentId = "SYSTEM",SortOrder = 5,Status = Status.Active,Url = "/admin/error/index",IconCss = "fa-home"  },
-                    new Function() {Id = "SETTING", Name = "Configuration",ParentId = "SYSTEM",SortOrder = 6,Status = Status.Active,Url = "/admin/setting/index",IconCss = "fa-home"  },
+              {
+                   new Function() {Id = "ROLE", Name = "Role",ParentId = "SYSTEM",SortOrder = 1,Status = Status.Active,Url = "/admin/role/index",IconCss = "fa-home"  },
+                   new Function() {Id = "FUNCTION", Name = "Function",ParentId = "SYSTEM",SortOrder = 2,Status = Status.Active,Url = "/admin/function/index",IconCss = "fa-home"  },
+                   new Function() {Id = "USER", Name = "User",ParentId = "SYSTEM",SortOrder =3,Status = Status.Active,Url = "/admin/user/index",IconCss = "fa-home"  },
+                   new Function() {Id = "ACTIVITY", Name = "Activity",ParentId = "SYSTEM",SortOrder = 4,Status = Status.Active,Url = "/admin/activity/index",IconCss = "fa-home"  },
+                   new Function() {Id = "ERROR", Name = "Error",ParentId = "SYSTEM",SortOrder = 5,Status = Status.Active,Url = "/admin/error/index",IconCss = "fa-home"  },
+                   new Function() {Id = "SETTING", Name = "Configuration",ParentId = "SYSTEM",SortOrder = 6,Status = Status.Active,Url = "/admin/setting/index",IconCss = "fa-home"  },
 
-                    new Function() {Id = "PRODUCT",Name = "Product Management",ParentId = null,SortOrder = 2,Status = Status.Active,Url = "/",IconCss = "fa-chevron-down"  },
-                    new Function() {Id = "PRODUCT_CATEGORY",Name = "Category",ParentId = "PRODUCT",SortOrder =1,Status = Status.Active,Url = "/admin/productcategory/index",IconCss = "fa-chevron-down"  },
-                    new Function() {Id = "PRODUCT_LIST",Name = "Product",ParentId = "PRODUCT",SortOrder = 2,Status = Status.Active,Url = "/admin/product/index",IconCss = "fa-chevron-down"  },
-                    new Function() {Id = "BILL",Name = "Bill",ParentId = "PRODUCT",SortOrder = 3,Status = Status.Active,Url = "/admin/bill/index",IconCss = "fa-chevron-down"  },
+                   new Function() {Id = "PRODUCT",Name = "Product Management",ParentId = null,SortOrder = 2,Status = Status.Active,Url = "/",IconCss = "fa-chevron-down"  },
+                   new Function() {Id = "PRODUCT_CATEGORY",Name = "Category",ParentId = "PRODUCT",SortOrder =1,Status = Status.Active,Url = "/admin/productcategory/index",IconCss = "fa-chevron-down"  },
+                   new Function() {Id = "PRODUCT_LIST",Name = "Product",ParentId = "PRODUCT",SortOrder = 2,Status = Status.Active,Url = "/admin/product/index",IconCss = "fa-chevron-down"  },
+                   new Function() {Id = "BILL",Name = "Bill",ParentId = "PRODUCT",SortOrder = 3,Status = Status.Active,Url = "/admin/bill/index",IconCss = "fa-chevron-down"  },
 
-                    new Function() {Id = "CONTENT",Name = "Content",ParentId = null,SortOrder = 3,Status = Status.Active,Url = "/",IconCss = "fa-table"  },
-                    new Function() {Id = "BLOG",Name = "Blog",ParentId = "CONTENT",SortOrder = 1,Status = Status.Active,Url = "/admin/blog/index",IconCss = "fa-table"  },
-                    new Function() {Id = "PAGE",Name = "Page",ParentId = "CONTENT",SortOrder = 2,Status = Status.Active,Url = "/admin/page/index",IconCss = "fa-table"  },
+                   new Function() {Id = "CONTENT",Name = "Content",ParentId = null,SortOrder = 3,Status = Status.Active,Url = "/",IconCss = "fa-table"  },
+                   new Function() {Id = "BLOG",Name = "Blog",ParentId = "CONTENT",SortOrder = 1,Status = Status.Active,Url = "/admin/blog/index",IconCss = "fa-table"  },
+                   new Function() {Id = "PAGE",Name = "Page",ParentId = "CONTENT",SortOrder = 2,Status = Status.Active,Url = "/admin/page/index",IconCss = "fa-table"  },
 
-                    new Function() {Id = "UTILITY",Name = "Utilities",ParentId = null,SortOrder = 4,Status = Status.Active,Url = "/",IconCss = "fa-clone"  },
-                    new Function() {Id = "FOOTER",Name = "Footer",ParentId = "UTILITY",SortOrder = 1,Status = Status.Active,Url = "/admin/footer/index",IconCss = "fa-clone"  },
-                    new Function() {Id = "FEEDBACK",Name = "Feedback",ParentId = "UTILITY",SortOrder = 2,Status = Status.Active,Url = "/admin/feedback/index",IconCss = "fa-clone"  },
-                    new Function() {Id = "ANNOUNCEMENT",Name = "Announcement",ParentId = "UTILITY",SortOrder = 3,Status = Status.Active,Url = "/admin/announcement/index",IconCss = "fa-clone"  },
-                    new Function() {Id = "CONTACT",Name = "Contact",ParentId = "UTILITY",SortOrder = 4,Status = Status.Active,Url = "/admin/contact/index",IconCss = "fa-clone"  },
-                    new Function() {Id = "SLIDE",Name = "Slide",ParentId = "UTILITY",SortOrder = 5,Status = Status.Active,Url = "/admin/slide/index",IconCss = "fa-clone"  },
-                    new Function() {Id = "ADVERTISMENT",Name = "Advertisment",ParentId = "UTILITY",SortOrder = 6,Status = Status.Active,Url = "/admin/advertistment/index",IconCss = "fa-clone"  },
+                   new Function() {Id = "UTILITY",Name = "Utilities",ParentId = null,SortOrder = 4,Status = Status.Active,Url = "/",IconCss = "fa-clone"  },
+                   new Function() {Id = "FOOTER",Name = "Footer",ParentId = "UTILITY",SortOrder = 1,Status = Status.Active,Url = "/admin/footer/index",IconCss = "fa-clone"  },
+                   new Function() {Id = "FEEDBACK",Name = "Feedback",ParentId = "UTILITY",SortOrder = 2,Status = Status.Active,Url = "/admin/feedback/index",IconCss = "fa-clone"  },
+                   new Function() {Id = "ANNOUNCEMENT",Name = "Announcement",ParentId = "UTILITY",SortOrder = 3,Status = Status.Active,Url = "/admin/announcement/index",IconCss = "fa-clone"  },
+                   new Function() {Id = "CONTACT",Name = "Contact",ParentId = "UTILITY",SortOrder = 4,Status = Status.Active,Url = "/admin/contact/index",IconCss = "fa-clone"  },
+                   new Function() {Id = "SLIDE",Name = "Slide",ParentId = "UTILITY",SortOrder = 5,Status = Status.Active,Url = "/admin/slide/index",IconCss = "fa-clone"  },
+                   new Function() {Id = "ADVERTISMENT",Name = "Advertisment",ParentId = "UTILITY",SortOrder = 6,Status = Status.Active,Url = "/admin/advertistment/index",IconCss = "fa-clone"  },
 
-                    new Function() {Id = "REPORT",Name = "Report",ParentId = null,SortOrder = 5,Status = Status.Active,Url = "/",IconCss = "fa-bar-chart-o"  },
-                    new Function() {Id = "REVENUES",Name = "Revenue report",ParentId = "REPORT",SortOrder = 1,Status = Status.Active,Url = "/admin/report/revenues",IconCss = "fa-bar-chart-o"  },
-                    new Function() {Id = "ACCESS",Name = "Visitor Report",ParentId = "REPORT",SortOrder = 2,Status = Status.Active,Url = "/admin/report/visitor",IconCss = "fa-bar-chart-o"  },
-                    new Function() {Id = "READER",Name = "Reader Report",ParentId = "REPORT",SortOrder = 3,Status = Status.Active,Url = "/admin/report/reader",IconCss = "fa-bar-chart-o"  },
+                   new Function() {Id = "REPORT",Name = "Report",ParentId = null,SortOrder = 5,Status = Status.Active,Url = "/",IconCss = "fa-bar-chart-o"  },
+                   new Function() {Id = "REVENUES",Name = "Revenue report",ParentId = "REPORT",SortOrder = 1,Status = Status.Active,Url = "/admin/report/revenues",IconCss = "fa-bar-chart-o"  },
+                   new Function() {Id = "ACCESS",Name = "Visitor Report",ParentId = "REPORT",SortOrder = 2,Status = Status.Active,Url = "/admin/report/visitor",IconCss = "fa-bar-chart-o"  },
                 });
             }
 
@@ -242,6 +247,8 @@ namespace TeduCoreApp.EF
                     Status = Status.Active
                 });
             }
+
+            await _context.SaveChangesAsync();
 
         }
     }

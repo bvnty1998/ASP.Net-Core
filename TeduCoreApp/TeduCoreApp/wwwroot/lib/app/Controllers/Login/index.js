@@ -54,9 +54,10 @@
                     url: '/admin/login/authen',
                 success: function (res) {
                     console.log(res);
-                        if(res.Success = true)
+                    if (res.success == true)
                         {
-                            window.location.href= '/admin/home';
+                            window.location.href = '/admin/home';
+                            
                         }
                         else
                         {

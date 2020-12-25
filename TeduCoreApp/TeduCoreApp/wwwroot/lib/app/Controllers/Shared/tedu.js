@@ -111,7 +111,7 @@
                 .addClass('hide');
     },
     getStatus: function () {
-        if (status == 1)
+        if (status == 0)
             return '<span class="badge bg-green">Kích hoạt</span>';
         else
             return '<span class="badge bg-red">Khoá</span>';

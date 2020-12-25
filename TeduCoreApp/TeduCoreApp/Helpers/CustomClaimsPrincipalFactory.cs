@@ -26,7 +26,7 @@ namespace TeduCoreApp.Helpers
                 new Claim("Email",User.Email),
                 new Claim("FullName",User.FullName),
                 new Claim("Avatar",User.Avatar ?? string.Empty),
-                new Claim("Role",string.Join(",",roles))
+                new Claim("Roles",string.Join(",",roles))
             });
             return principal;
 
