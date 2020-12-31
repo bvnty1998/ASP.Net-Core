@@ -36,7 +36,7 @@ namespace TeduCoreApp.Applications.Implementation
 
         public List<ProductCategoryViewModel> GetAll()
         {
-          return  _productCategoryRepository.FindAll().OrderBy(x=>x.PerentId).
+          return  _productCategoryRepository.FindAll().OrderBy(x=>x.PerentId).ThenBy(x=>x.SortOrder).
                 ProjectTo<ProductCategoryViewModel>().ToList();
         }
 
@@ -75,7 +75,18 @@ namespace TeduCoreApp.Applications.Implementation
 
         public void ReOrder(int sourceId, int targetId)
         {
-            throw new NotImplementedException();
+          var sortOrderOld = _productCategoryRepository.FindById(sourceId);
+          var sortOrderNew = _productCategoryRepository.FindById(targetId);
+            if(sortOrderOld.PerentId == sortOrderNew.PerentId)
+            {
+                int temporary = sortOrderOld.SortOrder;
+                sortOrderOld.SortOrder = sortOrderNew.SortOrder;
+                sortOrderNew.SortOrder = temporary;
+
+                _productCategoryRepository.Update(sortOrderNew);
+                _productCategoryRepository.Update(sortOrderOld);
+            }
+
         }
 
         public void Save()
@@ -85,12 +96,25 @@ namespace TeduCoreApp.Applications.Implementation
 
         public void Update(ProductCategoryViewModel productCategoryVm)
         {
-            throw new NotImplementedException();
+            var productcategory = Mapper.Map<ProductCategoryViewModel, ProductCategory>(productCategoryVm);
+            _productCategoryRepository.Update(productcategory);
+            //var category = _productCategoryRepository.FindById(productCategoryVm.Id);
+            //category.Name = productCategoryVm.Name;
+            //category.DateModified = DateTime.Now;
+            //category.Image = productCategoryVm.Image;
+            //category.SeoAlias = productCategoryVm.SeoAlias;
+            //category.Status = productCategoryVm.Status;
+            //category.PerentId = productCategoryVm.PerentId;
+            //category.Description = productCategoryVm.Description;
+            //category.SortOrder = productCategoryVm.SortOrder;
+            //_productCategoryRepository.Update(category);
         }
 
         public void UpdateParentId(int sourceId, int targetId, Dictionary<int, int> items)
         {
-            throw new NotImplementedException();
+            var sortOrderOld = _productCategoryRepository.FindById(sourceId);
+            sortOrderOld.PerentId = targetId;
+            _productCategoryRepository.Update(sortOrderOld);
         }
     }
 }

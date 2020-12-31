@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@section Styles
+    {
+    <link href="~/lib/jquery-easyui/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/lib/jquery-easyui/themes/icon.css" rel="stylesheet" />
+    <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
+}
+@section Scripts
+    {
+    <script src="~/lib/jquery-easyui/jquery.easyui.min.js"></script>
+    <script src="~/lib/app/Controllers/ProductCategories/index.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/localization/messages_vi.js"></script>
+    <script>
+        var Category = new productCategory();
+        Category.initialize();
+
+    </script>
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Categories <small>List Product Categories</small></h3>
+    </div>
+    <div class="title_right">
+        <div style="float:right">
+            <button class="btn btn-success" id="bntCreate" type="button">Create</button>
+        </div>
+    </div>
+
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <ul class="easyui-tree" id="treeCategory"></ul>
+            <div id="contextMenu" class="easyui-menu" style="width:120px">
+                <div id="btnEdit" data-options="iconCls:'icon-edit'">Sửa</div>
+                <div id="btnDelete" data-options="iconCls:'icon-remove'">Xóa</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@Html.Partial("_AddEditModal.cshtml")
+
