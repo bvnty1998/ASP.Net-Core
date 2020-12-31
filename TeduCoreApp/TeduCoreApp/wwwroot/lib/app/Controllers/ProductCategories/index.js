@@ -45,6 +45,7 @@ function registerEvents() {
     // Create Product Category
     $('#bntCreate').off('click').on('click', function () {
         $('#modalLabel').text('Add Product Category');
+        $('#hidIdM').val(0)
         $('#txtNameM').val('');
         //$('#txtParentM').val(reponse.perentId);
         initialProductCategort('');
