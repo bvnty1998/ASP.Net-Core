@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿    using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +20,7 @@ namespace TeduCoreApp.EF
         public void Add(T entity)
         {
             _context.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Dispose()
@@ -69,6 +70,7 @@ namespace TeduCoreApp.EF
         public void Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
+            _context.SaveChanges();
         }
 
         public void Remove(K id)
@@ -85,6 +87,7 @@ namespace TeduCoreApp.EF
         public void Update(T entity)
         {
             _context.Set<T>().Update(entity);
+            _context.SaveChanges();
         }
     }
 }

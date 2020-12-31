@@ -1,7 +1,9 @@
 ﻿var productController = function () {
     this.initialize = function () {
         loadData();
+        loadCategory();
         registerEvents();
+       
        
     }
     function registerEvents() {
@@ -81,5 +83,26 @@
         });
         
     }
-    
+
+    function loadCategory() {
+        var render = $('#ddlProductCategory').html();
+
+        $.ajax({
+            type: 'GET',
+            data: {
+
+            },
+            url: '/admin/ProductCategory/GetAllCategory',
+            dataType: 'JSON',
+            success: function (reponse) {
+                $.each(reponse, function (i, item) {
+                    render += '<option value="' + item.id + '">' + item.name + '</option>';
+                    $('#ddlProductCategory').html(render);
+                })
+            },
+            error: function (status) {
+                tedu.notify('Can not loading Product Category', 'error')
+            }
+        })
+    }
 }
