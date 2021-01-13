@@ -180,7 +180,7 @@ namespace TeduCoreApp.EF
                 };
                 _context.Sizes.AddRange(listSize);
             }
-
+            
             if (_context.ProductCategories.Count() == 0)
             {
                 List<ProductCategory> listProductCategory = new List<ProductCategory>()

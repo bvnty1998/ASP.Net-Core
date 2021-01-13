@@ -9,6 +9,14 @@ namespace TeduCoreApp.Data.Entities
 {
     public class ProductTag : DomainEntity<int>
     {
+        public ProductTag()
+        {
+            
+        }
+        public ProductTag(string tagId)
+        {
+            TagId = tagId;
+        }
         public int ProductId { set; get; }
         [StringLength(50)]
         [Column(TypeName = "varchar(125)")]

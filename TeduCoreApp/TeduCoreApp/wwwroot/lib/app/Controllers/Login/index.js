@@ -41,7 +41,7 @@
                 login(user, pass);
             }
         })
-      }
+     }
     var login = function (user,pass)
         {
             $.ajax({
@@ -57,6 +57,7 @@
                     if (res.success == true)
                         {
                             window.location.href = '/admin/home';
+
                             
                         }
                         else

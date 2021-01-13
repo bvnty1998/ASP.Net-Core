@@ -159,6 +159,9 @@ function registerEvents() {
             })
         })
     })
+    $('#btnSelectImg').on('click', function () {
+        $('#fileInputImage').click();
+    })
 }
 
 function loadProductCategory() {

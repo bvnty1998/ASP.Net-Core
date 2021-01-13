@@ -13,5 +13,12 @@ namespace TeduCoreApp.EF.Repositories
         {
             _context = context;
         }
+
+        public Product UpdateProduct(Product product)
+        {
+           _context.Update(product);
+            _context.SaveChanges();
+            return product;
+        }
     }
 }

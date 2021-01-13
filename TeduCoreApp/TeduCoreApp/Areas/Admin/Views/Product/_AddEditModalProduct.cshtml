@@ -1,0 +1,149 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="AddEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="fmMaintainance">
+                    @*Name*@
+                    <div class="form-group">
+                        <input type="hidden" id="hidIdM" value="0" />
+                        <label for="firstname" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="txtNameM" class="form-control" id="txtNameM" placeholder="">
+                        </div>
+                    </div>
+                    @*Category*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">Parent</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" name="txtCategoryM" id="txtCategoryM" placeholder="">
+                        </div>
+                    </div>
+                    @*Description*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" id="txtDescriptionM"></textarea>
+                        </div>
+                    </div>
+                    @*Unit*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">Unit</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="txtUnitM" class="form-control" id="txtUnitM" placeholder="">
+                        </div>
+                    </div>
+                    @*Price*@
+                    <div class="form-group col-sm-12">
+                        <div class="col-sm-4" style="display:flex">
+                            <label>Sell Price</label>
+                            <div>
+                                <input type="number" name="txtSellPriceM" class="form-control" id="txtSellPriceM" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="display:flex">
+                            <label>Original Price</label>
+                            <div>
+                                <input type="number" name="txtOriginalPriceM" class="form-control" id="txtOriginalPriceM" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="display:flex">
+                            <label>Promotion</label>
+                            <div>
+                                <input type="number" name="txtPromotionM" class="form-control" id="txtPromotionM" placeholder="">
+                            </div>
+                        </div>
+
+                    </div>
+                    @*Content*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">Content</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="txtContentM" class="form-control" id="txtContentM" placeholder="">
+                        </div>
+                    </div>
+                    @*SEO Title*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">SEO Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txtSeoTitleM" placeholder="">
+                        </div>
+                    </div>
+                    @*SEO Url*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">SEO Url</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="txtSeoAliasM" id="txtSeoAliasM" placeholder="">
+                        </div>
+                    </div>
+                    @*SEO Keyword*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">SEO Keywords</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txtSeoKeywordM" placeholder="">
+                        </div>
+                    </div>
+                    @*SEO Description*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">SEO Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txtSeoDescriptionM" placeholder="">
+                        </div>
+                    </div>
+                    @*SEO Tag*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">Tag(Separated by comma)</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="txtTagM" class="form-control" id="txtTagM" placeholder="">
+                        </div>
+                    </div>
+                    @*Image*@
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">Image</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" name="txtImage" class="form-control" id="txtImageM" />
+                                <input type="file" id="fileInputImage" style="display:none" />
+                                <span class="input-group-btn">
+                                    <input type="button" id="btnSelectImg" class="btn btn-default" value="Bowrse" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    @*Checkbox Acitve and show on home*@
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label>
+                                <input type="checkbox" checked="checked" id="ckbActiveM">
+                                <label class="text"> Acitve</label>
+                            </label>
+                            <label style="margin-left:15px">
+                                <input type="checkbox" id="ckbShowOnHomeM">
+                                <span class="text">Show on home</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnSaved">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

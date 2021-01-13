@@ -8,5 +8,6 @@ namespace TeduCoreApp.Data.IRepositories
 {
    public interface IProductRepository :IRepository<Product,int>
     {
+        Product UpdateProduct(Product product);
     }
 }

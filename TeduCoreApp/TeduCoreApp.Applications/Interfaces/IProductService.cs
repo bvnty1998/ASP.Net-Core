@@ -27,7 +27,7 @@ namespace TeduCoreApp.Applications.Interfaces
         void ReOrder(int sourceId, int targetId);
 
         List<ProductViewModel> GetHomeCategories(int top);
-
+        ProductViewModel UpdateProduct(ProductViewModel productVm);
 
 
 
