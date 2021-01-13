@@ -110,11 +110,11 @@
             $('.dv-loading')
                 .addClass('hide');
     },
-    getStatus: function () {
-        if (status == 0)
-            return '<span class="badge bg-green">Kích hoạt</span>';
+    getStatus: function (status,id) {
+        if (status == 1)
+            return '<button class="badge bg-green btn-changeStatus" id="' + id +'">Kích hoạt</button>';
         else
-            return '<span class="badge bg-red">Khoá</span>';
+            return '<button class="badge bg-red btn-changeStatus" id="' + id +'">Khoá</button>';
     },
     formatNumber: function (number,precision) {
         if (!isFinite(number)) {

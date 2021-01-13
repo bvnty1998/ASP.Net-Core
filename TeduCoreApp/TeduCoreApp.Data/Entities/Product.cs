@@ -13,6 +13,56 @@ namespace TeduCoreApp.Data.Entities
     [Table("Products")]
    public class Product : DomainEntity<int>, Iswitchable, IDateTracKing, IHasSeoMetaData
     {
+        public Product()
+        {
+            ProductTags = new List<ProductTag>();
+        }
+        public Product(string name, int categoryid, string image, decimal price, decimal originalPrice,
+            decimal promotionPrince, string description, string content, bool? homeFlag,
+            string tags, string unit, Status status, string seoPageTitle, string seoAlias, string seoMetaKeyWord)
+        {
+            Name = name;
+            CategoryId = categoryid;
+            Image = image;
+            Price = price;
+            OriginalPrice = originalPrice;
+            PromotionPrice = promotionPrince;
+            Description = description;
+            Content = content;
+            HomeFlag = homeFlag;
+            Tag = tags;
+            Unit = unit;
+            Status = status;
+            SeoPageTitle = seoPageTitle;
+            SeoAlias = seoAlias;
+            SeoKeywords = seoMetaKeyWord;
+            ProductTags = new List<ProductTag>();
+        }
+        public Product( int id,string name, int categoryid, string image, decimal price, decimal originalPrice,
+            decimal promotionPrince, string description, string content, bool? homeFlag,
+            string tags, string unit, Status status, string seoPageTitle, string seoAlias, string seoMetaKeyWord
+            , string seoMetaDescription)
+        {
+            Id = id;
+            Name = name;
+            CategoryId = categoryid;
+            Image = image;
+            Price = price;
+            OriginalPrice = originalPrice;
+            PromotionPrice = promotionPrince;
+            Description = description;
+            Content = content;
+            HomeFlag = homeFlag;
+            Tag = tags;
+            Unit = unit;
+            Status = status;
+            SeoPageTitle = seoPageTitle;
+            SeoAlias = seoAlias;
+            SeoKeywords = seoMetaKeyWord;
+            Description = seoMetaDescription;
+            ProductTags = new List<ProductTag>();
+        }
+
         [StringLength(255)]
         [Required]
         public string Name { get; set; }
@@ -38,6 +88,7 @@ namespace TeduCoreApp.Data.Entities
 
         [ForeignKey("CategoryId")]
         public virtual ProductCategory ProductCategory { set; get; }
+        public virtual ICollection<ProductTag> ProductTags { set; get; }
 
         public Status Status { set; get; }
         public DateTime DateCreated { set; get; }
