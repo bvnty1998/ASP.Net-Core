@@ -1,0 +1,84 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!-- Modal -->
+<div class="modal fade" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="fmMaintainance">
+                    @*Full Name*@
+                    <div class="form-group">
+                        <input type="hidden" id="hidIdM" value="0" />
+                        <label for="firstname" class="col-sm-2 control-label">Full Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="txtFullNameM" class="form-control" id="txtFullNameM" placeholder="">
+                        </div>
+                    </div>
+                    @*User Name*@
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">User Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="txtUserNameM" class="form-control" id="txtUserNameM" placeholder="">
+                        </div>
+                    </div>
+                    @*Password *@
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="txtPassWordM" class="form-control" id="txtPassWordM" placeholder="">
+                        </div>
+                    </div>
+                    @*Comfirm Password *@
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">Confirm Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="txtCofirmPassWords" class="form-control" id="txtCofirmPassWords" placeholder="">
+                        </div>
+                    </div>
+                    @*Email *@
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="txtEmailM" class="form-control" id="txtEmailM" placeholder="">
+                        </div>
+                    </div>
+                    @*Phone *@
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">Phone</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="txtPhoneM" class="form-control" id="txtPhoneM" placeholder="">
+                        </div>
+                    </div>
+                    @*Role *@
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">Role</label>
+                        <div class="col-sm-10">
+                            <div id="list_roles"></div>
+                        </div>
+                    </div>
+                    @*Checkbox Acitve*@
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label>
+                                <input type="checkbox" checked="checked" id="ckbActiveM">
+                                <label class="text"> Acitve</label>
+                            </label>
+                        </div>
+                    </div>
+                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="btn_Save" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

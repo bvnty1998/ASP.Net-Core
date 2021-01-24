@@ -15,6 +15,7 @@ namespace TeduCoreApp.EF
         private readonly AppDbContext _context;
         private UserManager<AppUser> _userManager;
         private RoleManager<AppRole> _roleManager;
+
         public DbIntializer(AppDbContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _context = context;
@@ -25,6 +26,7 @@ namespace TeduCoreApp.EF
         public async Task seed()
         {
 
+           
             if (!_roleManager.Roles.Any())
             {
                 _context.AppRoles.Count();
