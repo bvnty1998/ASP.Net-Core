@@ -257,7 +257,7 @@ function initialProductCategort(categoryId) {
 
         },
         dataType: 'JSON',
-        url: '/admin/ProductCategory/GetAllCategory',
+        url:'/admin/ProductCategory/GetAllCategory',
         success: function (reponse) {
             var arr = [];
             $.each(reponse, function (i, item) {

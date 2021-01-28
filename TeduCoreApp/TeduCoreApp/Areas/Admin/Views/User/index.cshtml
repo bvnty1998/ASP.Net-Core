@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewData["Title"] = "index";
+}
+@section Styles{
+    <link href="~/lib/jquery-easyui/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/jquery-easyui//jquery.easyui.min.js"></script>
+    <script src="~/lib/mustache//mustache.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/lib/app/Controllers/User/user.js"></script>
+    <script src="~/lib/jquery-validation/dist/localization/messages_vi.js"></script>
+    <script>
+        var user = new UserController();
+        user.initialize();
+    </script>
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Users</h3>
+    </div>
+    <div class=" title_right">
+        <div class="col-md-12  form-group pull-right top_search ">
+            <div class="col-md-7 col-sm-7 col-xs-7">
+                <div class="input-group">
+                    <input id="txtKeyWord" type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" id="btnSearch" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5" style="margin-top:7px">
+                <button class="btn-success" id="btnCreate" style="border-radius:25px">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="clearfix"></div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Account</th>
+                            <th>Name</th>
+                            <th>Avatar</th>
+                            <th>CreateDate</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-Content"></tbody>
+                </table>
+                <div class="row">
+                    <div>
+                        <div class="dataTables_info" id="dataTableCheckInfo" role="status" aria-live="polite">
+                            <select id="ddlShowPage">
+                                <option value="10" selected="selected">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span class="item-per-page">
+                                bản ghi trang/trang
+                            </span>
+                            Tổng số bản ghi:<strong id="lblTotalRecord"></strong>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="dataTables_paginate paging_simple_numbers" id="dataTableCheckbox_paginate">
+                                    <ul id="paginationaUL"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*create tamplate mustache*@
+<script id="table_template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{Account}}</td>
+        <td>{{Name}}</td>
+        <td>{{{Avartar}}}</td>
+        <td>{{{CreateDate}}}</td>
+        <td>{{{Status}}}</td>
+        <td style="width:5%"> <button class="btnEdit" id="{{Id}}"><i class="glyphicon glyphicon-pencil"></i></button></td>
+        <td style="width:5%"> <button class="btnDelete" id="{{Id}}" ><i class="glyphicon glyphicon-trash"></i></button></td>
+    </tr>
+</script>
+
+<script id="role_template" type="x-tmpl-mustache">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" {{Checked}} value="{{Name}}" name="ckRoles" id="{{Id}}">
+            <span class="text">{{Description}}</span>
+        </label>
+    </div>
+</script>
+
+    @*add partialview*@
+    @Html.Partial("_AddEditModalUser.cshtml");
+

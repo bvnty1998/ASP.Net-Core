@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "index";
+}
+@section Styles{ 
+
+}
+@section Scripts
+{
+    <script src="~/lib/mustache//mustache.js"></script>
+    <script src="~/lib/app/Controllers/Role/Role.js"></script>
+    <script>
+       var role = new RoleController();
+        role.initialize();
+    </script>
+}
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Roles </h3>
+                </div>
+                <div class="title_right">
+                    <div class="col-md-2" style="float:right">
+                        <button id="btn_Create_Role" class="btn btn-success" style="float:right;margin-top:8px;border-radius:20px">Create</button>
+                    </div>
+                    <div class="col-md-6" style="float:right">
+                        <div class="form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" id="txtkeyword" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" id="btnSearch">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="x_content">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="">
+                       
+                        <div class="x_content">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="40%">Name</th>
+                                        <th width="40%">Description</th>
+                                        <th width="5%">Edit</th>
+                                        <th width="5%">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-Content"></tbody>
+                            </table>
+                            <div class="row">
+                                <div>
+                                    <div class="dataTables_info" id="dataTableCheckInfo" role="status" aria-live="polite">
+                                        <select id="ddlShowPage">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                        <span class="item-per-page">
+                                            bản ghi trang/trang
+                                        </span>
+                                        Tổng số bản ghi:<strong id="lblTotalRecord"></strong>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <div class="dataTables_paginate paging_simple_numbers" id="dataTableCheckbox_paginate">
+                                                <ul id="paginationaUL"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_AddEditRole.cshtml")
+@*Craete template mustache*@
+<script id="table_template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{Name}}</td>
+        <td>{{Description}}</td>
+        <td style="width:5%"> <button class="btnEdit" id="{{Id}}"><i class="glyphicon glyphicon-pencil"></i></button></td>
+        <td style="width:5%"> <button class="btnDelete" id="{{Id}}"><i class="glyphicon glyphicon-trash"></i></button></td>
+    </tr>
+</script>

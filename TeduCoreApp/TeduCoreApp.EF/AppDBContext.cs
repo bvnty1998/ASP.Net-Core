@@ -18,10 +18,13 @@ namespace TeduCoreApp.EF
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions options) : 
+            base(options)
         {
         }
-       
+
+     
+
         public DbSet<Advertistment> Advertistments { set; get; }
         public DbSet<AdvertistmentPage> AdvertistmentPages { set; get; }
         public DbSet<AdvertistmentPosition> AdvertistmentPositions { set; get; }
@@ -50,7 +53,7 @@ namespace TeduCoreApp.EF
         public DbSet<SystemConfig> SystemConfigs { set; get; }
         public DbSet<Tag> Tags { set; get; }
         public DbSet<WholePrice> WholePrices { set; get; }
-
+        //public DbSet<AppUserRole> AppUserRoles { set; get; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -71,6 +74,7 @@ namespace TeduCoreApp.EF
             builder.AddConfiguration(new PageConfiguaration());
             builder.AddConfiguration(new ProductTagCofiguaration());
             builder.AddConfiguration(new TagConfiguration());
+            //builder.AddConfiguration(new AppUserRoleConfiguration());
             //base.OnModelCreating(builder);
         }
         public override int SaveChanges()

@@ -214,7 +214,7 @@
             })
         })
     }
-    function loadData(isPageChaged) {
+    function loadData() {
         var template = $('#table_tamplate').html();
         var render = "";
         $.ajax({
@@ -251,7 +251,7 @@
                 $('#lblTotalRecord').text(response.pageCount);
                 wrapPaging(response.rowCount, function () {
                     loadData()
-                }, isPageChaged)
+                })
             },
             error: function (status) {
                 console.log(status);
