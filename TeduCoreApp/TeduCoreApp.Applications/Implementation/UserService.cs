@@ -4,12 +4,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeduCoreApp.Applications.Interfaces;
 using TeduCoreApp.Applications.ViewModel.System;
 using TeduCoreApp.Data.Entities;
+using TeduCoreApp.EF;
+using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.ATOs;
 
 namespace TeduCoreApp.Applications.Implementation
@@ -18,13 +21,16 @@ namespace TeduCoreApp.Applications.Implementation
     public class UserService : IUserService
     {
         private readonly UserManager<AppUser> _userManager;
-       
-        public UserService(UserManager<AppUser> userManager)
+        private readonly AppDbContext db;
+        //AppDbContext _appDbContext;
+        public UserService(UserManager<AppUser> userManager, AppDbContext context)
         {
+            db = context;
             _userManager = userManager;
         }
         public async Task<bool> AddAsync(AppUserViewModel userVM)
         {
+            //_appDbContext.ExecuteQuery
             AppUser user = new AppUser()
             {
                 FullName = userVM.FullName,
@@ -52,9 +58,19 @@ namespace TeduCoreApp.Applications.Implementation
             
         }
 
-        public Task DeleteAsync(string id)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+
+            var param = new SqlParameter("@userId", id);
+            var rs = db.Database.ExecuteSqlCommand("tbl_UserAppRoles_Delete @userId", param);
+            var user = await _userManager.FindByIdAsync(id);
+            var roles = await _userManager.GetRolesAsync(user);
+            if(rs == roles.Count())
+            {
+                await _userManager.DeleteAsync(user);
+            }
+            
+            
         }
 
         public async Task<List<AppUserViewModel>> GetAllAsync()
@@ -104,15 +120,16 @@ namespace TeduCoreApp.Applications.Implementation
             var roleVM = userVM.Roles.ToList();
             foreach (var item in roles)
             {
-                var s = await _userManager.GetUsersInRoleAsync(item);
-               
+                
+               // kiểm tra roles xem có tồn tại trong roles mới hay ko nếu ko (false) thì xóa
                 if (roleVM.Contains(item) == false)
                 {
-                   
-                    // delete roles 
-                    
-                    var c = await _userManager.RemoveFromRoleAsync(user, item.ToString());
-                    var f = await _userManager.RemoveFromRoleAsync(user, "STAFF");
+                    object[] Params =
+                    {
+                        new SqlParameter("userId",userVM.Id),
+                        new SqlParameter("nameRole",item)
+                    };
+                   int res = db.Database.ExecuteSqlCommand("tbl_UserAppRoles_Delete_Single @userId,@nameRole", Params);
                 }
                 
             }
@@ -120,14 +137,21 @@ namespace TeduCoreApp.Applications.Implementation
             var rs = await _userManager.AddToRolesAsync(user, roleVM.Except(roles));
             if(rs.Succeeded)
             {
+               
+                if (user.PasswordHash != userVM.PasswordHash)
+                {
+                    //user.PasswordHash = userVM.PasswordHash;
+                    var response = await _userManager.RemovePasswordAsync(user);
+                    if(response.Succeeded)
+                    {
+                       var x = await _userManager.AddPasswordAsync(user, userVM.PasswordHash);
+                    }
+                }
                 user.FullName = userVM.FullName;
                 user.Email = userVM.Email;
                 user.DateModified = DateTime.Now;
-                user.PhoneNumber = user.PhoneNumber;
-                if (user.PasswordHash != userVM.PasswordHash)
-                {
-                    user.PasswordHash = userVM.PasswordHash;
-                }
+                user.PhoneNumber = userVM.PhoneNumber;
+                user.Status = userVM.Status;
                 // update user
                 await _userManager.UpdateAsync(user);
                 

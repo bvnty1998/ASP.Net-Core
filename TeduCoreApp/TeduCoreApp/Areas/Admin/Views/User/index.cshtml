@@ -4,11 +4,15 @@
 }
 @section Styles{
     <link href="~/lib/jquery-easyui/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
 }
 @section Scripts{
     <script src="~/lib/jquery-easyui//jquery.easyui.min.js"></script>
     <script src="~/lib/mustache//mustache.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
     <script src="~/lib/app/Controllers/User/user.js"></script>
+    <script src="~/lib/jquery-validation/dist/localization/messages_vi.js"></script>
     <script>
         var user = new UserController();
         user.initialize();
@@ -91,7 +95,7 @@
         <td>{{{CreateDate}}}</td>
         <td>{{{Status}}}</td>
         <td style="width:5%"> <button class="btnEdit" id="{{Id}}"><i class="glyphicon glyphicon-pencil"></i></button></td>
-        <td style="width:5%"> <button class="{{Id}}"><i class="glyphicon glyphicon-trash"></i></button></td>
+        <td style="width:5%"> <button class="btnDelete" id="{{Id}}" ><i class="glyphicon glyphicon-trash"></i></button></td>
     </tr>
 </script>
 

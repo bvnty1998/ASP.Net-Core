@@ -19,6 +19,7 @@ namespace TeduCoreApp.Areas.Admin.Controllers
         {
             return View();
         }
+        // get list user 
         [HttpGet]
         public IActionResult GetAll(string keyword, int page, int pageSize)
         {
@@ -26,12 +27,14 @@ namespace TeduCoreApp.Areas.Admin.Controllers
             return new OkObjectResult(model);
 
         }
+        // find user by id
         [HttpPost]
         public async Task<IActionResult> FindById(string id)
         {
             var user = await _userService.GetById(id);
             return new OkObjectResult(user);
         }
+        // save data when admin add or edit user
         [HttpPost]
         public async Task<IActionResult> Save(AppUserViewModel vm)
         {
@@ -46,6 +49,13 @@ namespace TeduCoreApp.Areas.Admin.Controllers
                 var rs = await _userService.AddAsync(vm);
                 return new OkObjectResult(rs);
             }
+        }
+        // delete user by id
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _userService.DeleteAsync(id);
+            return new OkResult();
         }
     }
 }

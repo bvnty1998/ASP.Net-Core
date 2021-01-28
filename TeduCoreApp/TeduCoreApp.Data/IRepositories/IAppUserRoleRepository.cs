@@ -6,7 +6,7 @@ using TeduCoreApp.Infrastructure.Interfaces;
 
 namespace TeduCoreApp.Data.IRepositories
 {
-    public interface IAppUserRoleRepository :IRepository<AppUserRole,Guid>
+    public interface IAppUserRoleRepository 
     {
     }
 }

@@ -22,7 +22,9 @@ namespace TeduCoreApp.EF
             base(options)
         {
         }
-       
+
+     
+
         public DbSet<Advertistment> Advertistments { set; get; }
         public DbSet<AdvertistmentPage> AdvertistmentPages { set; get; }
         public DbSet<AdvertistmentPosition> AdvertistmentPositions { set; get; }
@@ -51,7 +53,7 @@ namespace TeduCoreApp.EF
         public DbSet<SystemConfig> SystemConfigs { set; get; }
         public DbSet<Tag> Tags { set; get; }
         public DbSet<WholePrice> WholePrices { set; get; }
-        public DbSet<AppUserRole> AppUserRoles { set; get; }
+        //public DbSet<AppUserRole> AppUserRoles { set; get; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -59,7 +61,7 @@ namespace TeduCoreApp.EF
             builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims").HasKey(x => x.Id);
             builder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims").HasKey(x => x.Id);
             builder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
-            //builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.RoleId, x.UserId });
+            builder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.RoleId, x.UserId });
             builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => new { x.UserId });
             #endregion
             builder.AddConfiguration(new AnnouncementConfiguration());
@@ -72,7 +74,7 @@ namespace TeduCoreApp.EF
             builder.AddConfiguration(new PageConfiguaration());
             builder.AddConfiguration(new ProductTagCofiguaration());
             builder.AddConfiguration(new TagConfiguration());
-            builder.AddConfiguration(new AppUserRoleConfiguration());
+            //builder.AddConfiguration(new AppUserRoleConfiguration());
             //base.OnModelCreating(builder);
         }
         public override int SaveChanges()

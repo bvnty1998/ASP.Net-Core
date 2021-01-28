@@ -39,7 +39,7 @@ namespace TeduCoreApp.Utilities.ATOs
                 return Math.Min(CurrentPage * PageZise, RowCount);
             }
         }
-
+        
 
     }
 }
