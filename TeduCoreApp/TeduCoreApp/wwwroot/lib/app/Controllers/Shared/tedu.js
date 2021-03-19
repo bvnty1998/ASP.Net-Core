@@ -12,7 +12,7 @@
             // whether to auto-hide the notification
             autoHide: true,
             // if autoHide, hide after milliseconds
-            autoHideDelay: 5000,
+            autoHideDelay: 10000,
             // show the arrow pointing at the element
             arrowShow: true,
             // arrow size in pixels

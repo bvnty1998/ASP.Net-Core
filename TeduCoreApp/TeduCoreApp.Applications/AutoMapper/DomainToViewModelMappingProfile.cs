@@ -17,6 +17,11 @@ namespace TeduCoreApp.Applications.AutoMapper
             CreateMap<Product, ProductViewModel>();
             CreateMap<AppUser, AppUserViewModel>();
             CreateMap<AppRole, AppRoleViewModel>();
+            CreateMap<Permission, PermissionViewModel>();
+            CreateMap<Size, SizeViewModel>();
+            CreateMap<Color, ColorViewModel>();
+            CreateMap<Bill, BillViewModel>();
+            CreateMap<BillDetail, BillDetailViewModel>();
         }
     }
 }

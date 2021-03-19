@@ -12,7 +12,7 @@ namespace Microsoft.AspNetCore.Mvc
         {
             return urlHelper.Action(
                 action: nameof(AccountController.ConfirmEmail),
-                controller: "Account",
+                controller: "Admin",
                 values: new { userId, code },
                 protocol: scheme);
         }
@@ -21,7 +21,7 @@ namespace Microsoft.AspNetCore.Mvc
         {
             return urlHelper.Action(
                 action: nameof(AccountController.ResetPassword),
-                controller: "Account",
+                controller: "Admin",
                 values: new { userId, code },
                 protocol: scheme);
         }

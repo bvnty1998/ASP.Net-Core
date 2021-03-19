@@ -7,6 +7,11 @@ namespace TeduCoreApp.Applications.ViewModel.System
 {
     public class FunctionViewModel
     {
+        public FunctionViewModel()
+        {
+            children = new List<FunctionViewModel>();
+        }
+        
         public string Id { set; get; }
         public string Name
         {
@@ -21,5 +26,6 @@ namespace TeduCoreApp.Applications.ViewModel.System
         
         public int SortOrder { set; get; }
         public Status Status { set; get; }
+        public List<FunctionViewModel> children { set; get; }
     }
 }

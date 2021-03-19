@@ -13,10 +13,12 @@ namespace TeduCoreApp.Data.Entities
     [Table("Bills")]
     public class Bill : DomainEntity<int>, Iswitchable, IDateTracKing
     {
-        public Bill() { }
+        public Bill() {
+            BillDetails = new List<BillDetail>();
+        }
 
         public Bill(string customerName, string customerAddress, string customerMobile, string customerMessage,
-            BiilStatus billStatus, PaymentMethod paymentMethod, Status status, Guid? customerId)
+            BillStatus billStatus, PaymentMethod paymentMethod, Status status, Guid? customerId)
         {
             CustomerName = customerName;
             CustomerAddress = customerAddress;
@@ -26,10 +28,11 @@ namespace TeduCoreApp.Data.Entities
             PaymentMethod = paymentMethod;
             Status = status;
             CustomerId = customerId;
+            BillDetails = new List<BillDetail>();
         }
 
         public Bill(int id, string customerName, string customerAddress, string customerMobile, string customerMessage,
-           BiilStatus billStatus, PaymentMethod paymentMethod, Status status, Guid? customerId)
+           BillStatus billStatus, PaymentMethod paymentMethod, Status status, Guid? customerId)
         {
             Id = id;
             CustomerName = customerName;
@@ -59,7 +62,7 @@ namespace TeduCoreApp.Data.Entities
 
         public PaymentMethod PaymentMethod { set; get; }
 
-        public BiilStatus BillStatus { set; get; }
+        public BillStatus BillStatus { set; get; }
 
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }

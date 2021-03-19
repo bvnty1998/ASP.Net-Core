@@ -2,15 +2,17 @@
 @{
     ViewData["Title"] = "index";
 }
-@section Styles{ 
-
+@section Styles{
+    <link href="~/lib/jquery-treegrid/css/jquery.treegrid.css" rel="stylesheet" />
 }
 @section Scripts
-{
-    <script src="~/lib/mustache//mustache.js"></script>
+    {
+    <script src="~/lib/jquery-treegrid/js/jquery.treegrid.js"></script>
+   
     <script src="~/lib/app/Controllers/Role/Role.js"></script>
+    
     <script>
-       var role = new RoleController();
+        var role = new RoleController();
         role.initialize();
     </script>
 }
@@ -41,13 +43,14 @@
             <div class="x_content">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="">
-                       
+
                         <div class="x_content">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th width="40%">Name</th>
                                         <th width="40%">Description</th>
+                                        <th width="5%">Permission</th>
                                         <th width="5%">Edit</th>
                                         <th width="5%">Delete</th>
                                     </tr>
@@ -85,11 +88,13 @@
     </div>
 </div>
 @Html.Partial("_AddEditRole.cshtml")
+@Html.Partial("_AssignPermission.cshtml")
 @*Craete template mustache*@
 <script id="table_template" type="x-tmpl-mustache">
     <tr>
         <td>{{Name}}</td>
         <td>{{Description}}</td>
+        <td style="width:5%;text-align:center"> <button class="btnPermission" id="{{Id}}"><i class="glyphicon glyphicon-eye-close"></i></button></td>
         <td style="width:5%"> <button class="btnEdit" id="{{Id}}"><i class="glyphicon glyphicon-pencil"></i></button></td>
         <td style="width:5%"> <button class="btnDelete" id="{{Id}}"><i class="glyphicon glyphicon-trash"></i></button></td>
     </tr>

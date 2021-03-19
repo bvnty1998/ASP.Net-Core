@@ -10,6 +10,7 @@ namespace TeduCoreApp.Applications.Interfaces
     {
        Task<List<FunctionViewModel>> GetAll();
        List<FunctionViewModel> GetAllByPermission(Guid userId);
-       
+       List<FunctionViewModel> GetAllFunction();
+
     }
 }

@@ -581,6 +581,34 @@ namespace TeduCoreApp.EF.Migrations
                     b.ToTable("Pages");
                 });
 
+            modelBuilder.Entity("TeduCoreApp.Data.Entities.Permission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("CanCreate");
+
+                    b.Property<bool>("CanDelete");
+
+                    b.Property<bool>("CanRead");
+
+                    b.Property<bool>("CanUpdate");
+
+                    b.Property<string>("FunctionId")
+                        .IsRequired()
+                        .HasMaxLength(128);
+
+                    b.Property<Guid>("RoleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FunctionId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Permissions");
+                });
+
             modelBuilder.Entity("TeduCoreApp.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -926,6 +954,19 @@ namespace TeduCoreApp.EF.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("TeduCoreApp.Data.Entities.Permission", b =>
+                {
+                    b.HasOne("TeduCoreApp.Data.Entities.Function", "Function")
+                        .WithMany()
+                        .HasForeignKey("FunctionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TeduCoreApp.Data.Entities.AppRole", "AppRole")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("TeduCoreApp.Data.Entities.Product", b =>
                 {
                     b.HasOne("TeduCoreApp.Data.Entities.ProductCategory", "ProductCategory")
@@ -963,7 +1004,7 @@ namespace TeduCoreApp.EF.Migrations
             modelBuilder.Entity("TeduCoreApp.Data.Entities.ProductTag", b =>
                 {
                     b.HasOne("TeduCoreApp.Data.Entities.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductTags")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
 

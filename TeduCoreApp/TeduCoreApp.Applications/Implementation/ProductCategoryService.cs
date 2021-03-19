@@ -62,7 +62,8 @@ namespace TeduCoreApp.Applications.Implementation
 
         public ProductCategoryViewModel GetById(int id)
         {
-            return Mapper.Map<ProductCategory, ProductCategoryViewModel>(_productCategoryRepository.FindById(id));
+            var dt = _productCategoryRepository.FindById(id);
+            return Mapper.Map<ProductCategory, ProductCategoryViewModel>(dt);
         }
 
         public List<ProductCategoryViewModel> GetHomeCategories(int top)

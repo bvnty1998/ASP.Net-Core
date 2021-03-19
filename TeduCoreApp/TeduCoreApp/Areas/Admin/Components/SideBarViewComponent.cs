@@ -20,18 +20,29 @@ namespace TeduCoreApp.Areas.Admin.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var role = UserClaimsPrincipal.Claims?.FirstOrDefault(x => x.Type == "Roles").Value;
-            
             List<FunctionViewModel> functions;
-            if (role.Split(";").Contains(CommonConstants.AdminRole))
+
+            if (UserClaimsPrincipal.Claims.Count() != 0)
             {
-                functions = await _functionService.GetAll();
+                var  role = UserClaimsPrincipal.Claims?.FirstOrDefault(x => x.Type == "Roles").Value;
+                
+                if (role.Split(";").Contains(CommonConstants.AdminRole))
+                {
+                    functions = await _functionService.GetAll();
+                }
+                else
+                {
+                    //TODO: Get by Permission
+                    functions = new List<FunctionViewModel>();
+                }
             }
             else
             {
-                //TODO: Get by Permission
                 functions = new List<FunctionViewModel>();
             }
+           
+            
+           
             return View(functions);
         }
         

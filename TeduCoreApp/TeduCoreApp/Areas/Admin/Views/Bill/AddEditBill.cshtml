@@ -1,0 +1,85 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!-- Modal -->
+<div class="modal fade in" id="billAddEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="fmMaintainance">
+                    <div class="form-group">
+                        <label class="col-md-3" style="text-align:center">Customer Name</label>
+                        <input class="col-md-9" id="txtCustomerName" name="txtCustomerName" placeholder="enter customer name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3" style="text-align:center">Address</label>
+                        <input class="col-md-9" id="txtAddress" name="txtAddress" placeholder="enter address" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3" style="text-align:center">Phone</label>
+                        <input type="number" class="col-md-9" id="txtPhone" name="txtPhone" placeholder="enter phone" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3" style="text-align:center">Customer Message</label>
+                        <input class="col-md-9" id="txtMessage" name="txtMessage" placeholder="enter customer message" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3" style="text-align:center">Payment menthod</label>
+                        <select id="paymentMenthod"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3" style="text-align:center">Bill Status</label>
+                        <select id="billStatus"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Details</label>
+                        <div class="col-sm-10">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Color</th>
+                                        <th>Size</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-Detail-details"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <button class="btn btn-xs btn-success" id="btnAddDetail" type="button">Add</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn-save">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="x-tmpl-mustache" id="template-table-bill-details">
+    <tr>
+        <td>{{{Products}}}</td>
+        <td>{{{Colors}}}</td>
+        <td>{{{Sizes}}}</td>
+        <td style="width:15%"><input type="number" class="txtQuantity form-control" value="{{Quantity}}" /></td>
+        <td style="width:20%"><label class="lblPrice">{{Price}}</label> </td>
+        <td><button class="btn btn-xs btn-danger btn-delete-detail"><i class="fa fa-trash"></i></button></td>
+    </tr>
+</script>

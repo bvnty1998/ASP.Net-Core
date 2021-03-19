@@ -22,6 +22,8 @@ using Serilog.Extensions.Logging;
 using Microsoft.Extensions.Logging;
 using TeduCoreApp.Helpers;
 using TeduCoreApp.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using TeduCoreApp.Authorization;
 
 
 
@@ -84,12 +86,21 @@ namespace TeduCoreApp
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             services.AddTransient<IProductTagRepository, ProductTagRepository>();
+            services.AddTransient<IPermissionRepository, PermissionReponsitory>();
+            services.AddTransient<ISizeRepository, SizeRepository>();
+            services.AddTransient<IColorRepository, ColorRepository>();
+            services.AddTransient<IBillRepository, BillRepository>();
             //Service
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IPermissionService, PermissionService>();
+            services.AddTransient<ISizeService, SizeService>();
+            services.AddTransient<IColorService, ColorService>();
+            services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationCrudHandler>();
+            services.AddTransient<IBillService, BillService>();
             services.AddTransient<DbIntializer>();
             
         }

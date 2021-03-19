@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TeduCoreApp.Applications.Interfaces;
 using TeduCoreApp.Applications.ViewModel.Product;
@@ -10,12 +11,15 @@ using TeduCoreApp.Utilities.TextHelper;
 namespace TeduCoreApp.Areas.Admin.Controllers
 {
     //[Area("Admin")]
+    [Authorize]
     public class ProductController :BaseController
     {
         IProductService _productService;
+       
         public ProductController(IProductService productService)
         {
             _productService = productService;
+           
         }
         public IActionResult Index()
         {
@@ -75,6 +79,7 @@ namespace TeduCoreApp.Areas.Admin.Controllers
             _productService.Delete(Id);
             return new OkResult();
         }
+
         #endregion
     }
 }

@@ -32,5 +32,32 @@ namespace TeduCoreApp.Applications.Implementation
         {
             throw new NotImplementedException();
         }
+
+        public List<FunctionViewModel> GetAllFunction()
+        {
+            var list = _functionRepository.FindAll().ProjectTo<FunctionViewModel>().ToList();
+             List<FunctionViewModel> listFunction = new List<FunctionViewModel>();
+            for(int i = 0; i < list.Count();i++)
+            {
+                if(list[i].ParentId == null)
+                {
+                    listFunction.Add(list[i]);
+                }
+            }
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].ParentId != null)
+                {
+                    for (int j = 0; j < listFunction.Count(); j++)
+                    {
+                        if(list[i].ParentId == listFunction[j].Id)
+                        {
+                            listFunction[j].children.Add(list[i]);
+                        }
+                    }
+                }
+            }
+            return listFunction;
+        }
     }
 }

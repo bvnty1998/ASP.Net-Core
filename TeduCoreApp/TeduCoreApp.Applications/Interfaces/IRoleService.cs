@@ -15,5 +15,7 @@ namespace TeduCoreApp.Applications.Interfaces
         Task<bool> UpdateRoleAsync(AppRoleViewModel roleVM);
         Task<bool> DeleteRoleAsync(string Id);
         Task<AppRoleViewModel> GetRoleByIdAsync(string Id);
+        Task<bool> CheckPermissoion(string functionId, string action, string[] roles);
+        
     }
 }

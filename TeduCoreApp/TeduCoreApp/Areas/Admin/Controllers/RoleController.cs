@@ -10,10 +10,14 @@ namespace TeduCoreApp.Areas.Admin.Controllers
 {
     public class RoleController : BaseController
     {
-        private IRoleService _roleService; 
-        public RoleController (IRoleService roleService)
+        private IFunctionService _functionService;
+        private IRoleService _roleService;
+        private IPermissionService _permissionService;
+        public RoleController (IRoleService roleService, IFunctionService functionViewModel,IPermissionService permissionService)
         {
+            _functionService = functionViewModel;
             _roleService = roleService;
+            _permissionService = permissionService;
         }
         public IActionResult Index()
         {
@@ -77,6 +81,38 @@ namespace TeduCoreApp.Areas.Admin.Controllers
        public async Task<IActionResult> GetRoleByIdAsync(string Id)
         {
             var rs = await _roleService.GetRoleByIdAsync(Id);
+            return new OkObjectResult(rs);
+        }
+        /// <summary>
+        /// Get list function
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult GetAllFunction()
+        {
+            var rs = _functionService.GetAllFunction();
+            return new OkObjectResult(rs);
+        }
+
+        /// <summary>
+        /// Add permission for role
+        /// </summary>
+        /// <param name="listPermissionVM"></param>
+        /// <returns></returns>
+        public IActionResult AddPermission(List<PermissionViewModel> listPermissionVM)
+        {
+            var rs = _permissionService.AddPermission(listPermissionVM);
+            return new OkObjectResult(rs);
+        }
+
+        public IActionResult GetPermissonByRoleId(string roleId)
+        {
+            var rs = _permissionService.GetPermissonByRoleId(roleId);
+            return new OkObjectResult(rs);
+        }
+
+        public IActionResult DeletePermission(string roleId, List<PermissionViewModel> listPermissionVM)
+        {
+            var rs = _permissionService.DeletePermission(roleId, listPermissionVM);
             return new OkObjectResult(rs);
         }
     }

@@ -10,5 +10,10 @@ namespace TeduCoreApp.Utilities.Constants
         public const string AdminRole = "Admin";
         public const string ProductTag = "Product";
         public const string BlogTag = "Blog";
+        public class UserClaims
+        {
+            public const string Roles = "Roles";
+        }
+
     }
 }
